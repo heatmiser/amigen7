@@ -7,7 +7,8 @@
 CHROOT=${AMIGENCHROOT:-/mnt/ec2-root}
 CLOUDCFG="$CHROOT/etc/cloud/cloud.cfg"
 JRNLCNF="$CHROOT/etc/systemd/journald.conf"
-MAINTUSR=${MAINTUSR:-"maintuser"}
+#MAINTUSR=${MAINTUSR:-"maintuser"}
+MAINTUSR=${MAINTUSR:-"ec2-user"}
 
 # Disable EPEL repos
 chroot "${CHROOT}" yum-config-manager --disable "*epel*" > /dev/null
