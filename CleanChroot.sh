@@ -60,7 +60,7 @@ system_info:\
     name: '"${MAINTUSR}"'\
     lock_passwd: true\
     gecos: Local Maintenance User\
-    groups: [wheel, adm]\
+    groups: [wheel, adm, systemd-journal]\
     sudo: ["ALL=(ALL) NOPASSWD:ALL"]\
     shell: /bin/bash\
   distro: rhel\
