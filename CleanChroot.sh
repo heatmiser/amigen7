@@ -61,9 +61,8 @@ system_info:\
     lock_passwd: true\
     gecos: Local Maintenance User\
     groups: [wheel, adm]\
-    sudo: ["ALL=(root) TYPE=sysadm_t ROLE=sysadm_r NOPASSWD:ALL"]\
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]\
     shell: /bin/bash\
-    selinux_user: staff_u\
   distro: rhel\
   paths:\
     cloud_dir: /var/lib/cloud\
