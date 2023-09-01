@@ -118,11 +118,10 @@ function PrepChroot() {
    rpm --root "${CHROOT}" -ivh --nodeps /tmp/*.rpm
 
    # When we don't specify repos, default to a sensible value-list
-   #if [[ -z ${BONUSREPO} ]]
-   #then
-   #   BONUSREPO=${DEFAULTREPOS}
-   #fi
-   BONUSREPO=${DEFAULTREPOS}
+   if [[ -z ${BONUSREPO} ]]
+   then
+      BONUSREPO=${DEFAULTREPOS}
+   fi
 
    yum --disablerepo="*" --enablerepo="${BONUSREPO}" \
       --installroot="${CHROOT}" -y reinstall "${REPOPKGS[@]}"
