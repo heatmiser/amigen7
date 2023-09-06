@@ -76,6 +76,7 @@ fi
 printf "%-12s %s\n" sudoers: files >> "${CHROOT}/etc/nsswitch.conf"
 
 # Ensure that /etc/sysconfig/kernel is present
+echo "Populate /etc/sysconfig/kernel via heredoc"
 cat << EOFKERNELSYSCFG > $KERNELSYSCFG
 # UPDATEDEFAULT specifies if new-kernel-pkg should make
 # new kernels the default
