@@ -7,6 +7,7 @@
 CHROOT=${AMIGENCHROOT:-/mnt/ec2-root}
 CLOUDCFG="$CHROOT/etc/cloud/cloud.cfg"
 JRNLCNF="$CHROOT/etc/systemd/journald.conf"
+KERNELSYSCFG="$CHROOT/etc/sysconfig/kernel"
 #MAINTUSR=${MAINTUSR:-"maintuser"}
 MAINTUSR=${MAINTUSR:-"ec2-user"}
 
@@ -74,3 +75,12 @@ fi
 # Update NS-Switch map-file for SEL-enabled environment
 printf "%-12s %s\n" sudoers: files >> "${CHROOT}/etc/nsswitch.conf"
 
+# Ensure that /etc/sysconfig/kernel is present
+cat << EOFKERNELSYSCFG > $KERNELSYSCFG
+# UPDATEDEFAULT specifies if new-kernel-pkg should make
+# new kernels the default
+UPDATEDEFAULT=yes
+
+# DEFAULTKERNEL specifies the default kernel package type
+DEFAULTKERNEL=kernel
+EOFKERNELSYSCFG
