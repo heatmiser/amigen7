@@ -14,6 +14,10 @@ MAINTUSR=${MAINTUSR:-"ec2-user"}
 # Disable EPEL repos
 chroot "${CHROOT}" yum-config-manager --disable "*epel*" > /dev/null
 
+# Remove SPEL and EPEL
+chroot "${CHROOT}" yum erase -y spel-release
+chroot "${CHROOT}" yum erase -y epel-release
+
 # Get rid of stale RPM data
 chroot "${CHROOT}" yum clean --enablerepo=* -y packages
 chroot "${CHROOT}" rm -rf /var/cache/yum
