@@ -29,9 +29,9 @@ HOSTNAME="localhost.localdomain"
 EOF
 
 # Make ssh relax about root logins
-cat <<EOF >> "${CHROOT}/etc/ssh/sshd_config"
-UseDNS no
-PermitRootLogin without-password
-EOF
+#cat <<EOF >> "${CHROOT}/etc/ssh/sshd_config"
+#UseDNS no
+#PermitRootLogin without-password
+#EOF
 
 chroot "${CHROOT}" systemctl enable network
