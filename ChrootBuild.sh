@@ -19,7 +19,10 @@ case $( rpm -qf /etc/os-release --qf '%{name}' ) in
    oraclelinux-release)
       OSREPOS=(
          ol7_latest
+         ol7_UEKR4
+         ol7_UEKR5
          ol7_UEKR6
+         ol7_optional_latest
       )
       ;;
    redhat-release-server)
