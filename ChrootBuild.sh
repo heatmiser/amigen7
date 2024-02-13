@@ -19,7 +19,7 @@ case $( rpm -qf /etc/os-release --qf '%{name}' ) in
    oraclelinux-release)
       OSREPOS=(
          ol7_latest
-         ol7_UEKR5
+         ol7_UEKR6
       )
       ;;
    redhat-release-server)
@@ -81,7 +81,9 @@ function PrepChroot() {
 
       # setup some public-yum settings for onPremise installations
       mkdir -p "${CHROOT}/etc/yum/vars"
-      touch "${CHROOT}/etc/yum/vars/ociregion"
+      #touch "${CHROOT}/etc/yum/vars/ociregion"
+      echo "-phx" > "${CHROOT}/etc/yum/vars/ociregion"
+      echo "oracle.com" > "${CHROOT}/etc/yum/vars/ocidomain"
 
       mkdir -p "${CHROOT}/etc/yum.repos.d"
       # copy repositoryfiles manually
